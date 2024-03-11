@@ -87,7 +87,7 @@ def rename_image_ref(m, original=True):
     print('image_ref_name',image_ref_name)
     
     if original:
-        return "!["+m.group(1)+"]("+GITHUB_REPO_PREFIX+args.input.stem+"/"+image_ref_name+")"
+        return "!["+m.group(1)+"]("+GITHUB_REPO_PREFIX+args.input.stem+"/"+image_ref_name+m.group(3)+")"
     else:
         return '<img src="'+GITHUB_REPO_PREFIX+args.input.stem+"/" +image_ref_name +'"'
 
@@ -101,7 +101,7 @@ def cleanup_image_folder():
 # Search for the image links which appear in the markdown file. It can handle two types: ![]() and <img src="LINK" alt="CAPTION" style="zoom:40%;" />.
 # The second type is mainly for those images which have been zoomed.
 def image_ops(_lines):
-    _lines = re.sub(r"\!\[(.*?)\]\((.*?)\)",functools.partial(rename_image_ref, original=True), _lines)
+    _lines = re.sub(r"\!\[(.*?)\]\((.*?) (.*?)\)",functools.partial(rename_image_ref, original=True), _lines)
     _lines = re.sub(r'<img src="(.*?)"',functools.partial(rename_image_ref, original=False), _lines)
     return _lines
 

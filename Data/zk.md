@@ -1,7 +1,7 @@
 # 一、零知识证明相关的定义和例子
 简明非交互式零知识证明zkSNARKs(zero-knowledge succinct non-interactive argument of knowledge)是一种具备多种性质的证明系统。本部分将从一个简单的例子引出proof的概念（argument与proof仅有细微区别，argument额外要求prover的计算能力受限），并给出对应的completeness、soundness、knowledge soundness、zero-knowledge等性质的定义，最后以二次剩余为例介绍一个证明系统。
 ## 1.1、直观理解proof
-![图片1](zk/图片1.png)
+![图片1](zk/图片1.png "proof图片1")
 ## 1.2、proof system的相关定义
 ![图片3](zk/图片3.png "proof system图片3")
 **定义：** 如果$(P,V)$满足下面两条性质，且$V$是PPT的算法，则称$(P,V)$是针对语言$L$(可简单理解为命题成立的集合)的proof system：
