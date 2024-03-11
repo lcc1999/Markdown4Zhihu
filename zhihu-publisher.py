@@ -87,7 +87,7 @@ def rename_image_ref(m, original=True):
     print('image_ref_name',image_ref_name)
     
     if original:
-        return "!["+m.group(1)+"]("+GITHUB_REPO_PREFIX+args.input.stem+"/"+image_ref_name+m.group(3)+")"
+        return "!["+m.group(1)+"]("+GITHUB_REPO_PREFIX+args.input.stem+"/"+image_ref_name+" "+m.group(3)+")"
     else:
         return '<img src="'+GITHUB_REPO_PREFIX+args.input.stem+"/" +image_ref_name +'"'
 
